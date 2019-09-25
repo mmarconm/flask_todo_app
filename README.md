@@ -28,3 +28,9 @@ pip install -r requirements.txt
 ```
 Nesse projeto estou usando bootstrap 4 usando CDN
 ```
+
+## Rodar o projeto
+
+```
+flask run 
+```
