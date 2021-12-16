@@ -1,48 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <title>Todo List</title>
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <title>Todo List</title>
-</head>
+    <body>
+        <div class="container">
+            <br />
+            <nav class="navbar navbar-dark bg-primary">
+                <a class="navbar-brand" href="#">TodoApp</a>
+            </nav>
+            <br />
+            <div class="jumbotron">
+                <div class="form-group">
+                    <form method="POST">
+                        <label
+                            class="text-center alert alert-danger"
+                            for=""
+                            >Adicione um novo item.</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Ir as compras..."
+                            name="task"
+                        />
+                    </form>
+                </div>
+            </div>
+            <div class="">
+                {% if todos %} {% for todo in todos %}
+                <ul class="list-group">
+                    <li class="list-group-item mb-2">
+                        {{ todo.task }}
+                        <a
+                            href="{{ url_for('task.remove_task', _id=todo.id) }}"
+                            class="
+                                btn btn-outline-warning
+                                float-right
+                                btn-sm
+                            "
+                            >Deletar</a
+                        >
+                    </li>
+                </ul>
+                {% endfor %} {% else %}
+                <h3 class="alert alert-warning text-center">
+                    Lista Vazia, Adicione novos items...
+                </h3>
+                {% endif %}
+            </div>
+        </div>
 
-<body>
-
-  <div class="container">
-    <br>
-    <nav class="navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">TodoApp</a>
-    </nav>
-    <br>
-    <div class="jumbotron">
-      <div class="form-group">
-        <form method="POST">
-          <label class="text-center alert alert-danger" for="">Crie uma nova tarefa ;)</label>
-          <input type="text" class="form-control" placeholder="Ir as compras..." name='task'>
-        </form>
-      </div>
-    </div>
-    <div class="">
-      {% if todos %}
-      {% for todo in todos %}
-      <ul class="list-group">
-        <li class="list-group-item mb-2">{{ todo.task }}
-          <a href="{{ url_for('task.remove_task', _id=todo.id) }}"
-            class="btn btn-outline-warning float-right btn-sm">Deletar</a></li>
-      </ul>
-      {% endfor %}
-      {% else %}
-      <h3 class="alert alert-warning text-center">Lista Vazia, Crie uma Nova Lista</h3>
-      {% endif %}
-    </div>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
 </html>
