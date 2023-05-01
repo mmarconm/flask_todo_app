@@ -6,7 +6,7 @@ authors = ["Marcelo Marcon <marcelo.marcon@ax4b.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Flask = "^2.0.2"
+Flask = "^2.3.2"
 Flask-Migrate = "^3.1.0"
 Flask-SQLAlchemy = "^2.5.1"
 flask-shell = "^0.1.8"
